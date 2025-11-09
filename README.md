@@ -164,4 +164,4 @@ pip install -r requirements.txt
 ```bash
 python src/main.py
 ```
-![Versión](https://img.shields.io/badge/version-0.1.0-blue)
+![Versión](https://img.shields.io/badge/version-0.1.1-blue)
