@@ -1,4 +1,12 @@
+<!-- Banner Dark Data -->
+![Banner](<img width="1600" height="400" alt="banner" src="https://github.com/user-attachments/a[![Python](https://img.shields.io/badge/python-3.10+-blue?style=flat-square)]()
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)]()ssets/60c5f28a-b5c1-406f-8b75-76a2b7c8efe3" />
+)
+
 ## 📊 Sistema de Pronóstico de Demanda Farmacéutica – Grupo Collins
+
+[![Python](https://img.shields.io/badge/python-3.10+-blue?style=flat-square)]()
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)]()
 
 Este proyecto desarrolla un sistema capaz de generar pronósticos mensuales de demanda para productos farmacéuticos por cliente. Utiliza modelos de series de tiempo y Machine Learning para apoyar decisiones estratégicas en **Grupo Collins**, como planeación de producción y abastecimiento.
 
