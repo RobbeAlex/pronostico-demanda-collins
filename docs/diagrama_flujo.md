@@ -1,1 +1,23 @@
-[![](https://mermaid.ink/img/pako:eNplksGOmzAQhl8F-ZyNgJBAOFTKAsmmaqRqt-qhJgcvngAq2Mg27W6jPFS1j5AX68Qkq6TLAfmf-f6Z8cCeFJIDicmukb-LiinjfEtz4eCzoGtRF7XcOnd3n5x7mjBVMuVwZqR2qlqb45uqCzxz0Byc5On7djDeW0OCdm2YKGo0pdAywZdSQcG0AfX0iu_2zCeWT-miVHDq0OJEja3rdEqK45s22OcMpxbOaCaMAnFFF1IMs53BzIJLugIBCrmrUtrp5MV4ppeWXtHsF2v60y1BQ9vB8a88jVEwzm75leUf6EqxXV2gQYHuG8P4e_8HS6xp9oLNzP8DsKt9rS35mS5rgZEhpvvnUrGucjbD9YaoXYBHvyrZVWBsanuV8enicb1ZfIhP6ObLI-B2ta6l-JAOcJl42-cGrlMg-GWYYeepd6P8GzW5UQEZkVLVnMRG9TAiLaiWnSTZn7icmApayEmMR87Uz5zk4oCejokfUrYXm5J9WZF4xxqNqu_w80JaM1xM-x7Fn4CDSmQvDIm9cGaLkHhPXlC67tgPvXkw9YNZ5PkzzL6SeBqMXX86d6Mw8txw4kbTw4j8sX3d8XwyjfwoDDw_csNwPj_8A5PU-Mk?type=png)](https://mermaid.live/edit#pako:eNplksGOmzAQhl8F-ZyNgJBAOFTKAsmmaqRqt-qhJgcvngAq2Mg27W6jPFS1j5AX68Qkq6TLAfmf-f6Z8cCeFJIDicmukb-LiinjfEtz4eCzoGtRF7XcOnd3n5x7mjBVMuVwZqR2qlqb45uqCzxz0Byc5On7djDeW0OCdm2YKGo0pdAywZdSQcG0AfX0iu_2zCeWT-miVHDq0OJEja3rdEqK45s22OcMpxbOaCaMAnFFF1IMs53BzIJLugIBCrmrUtrp5MV4ppeWXtHsF2v60y1BQ9vB8a88jVEwzm75leUf6EqxXV2gQYHuG8P4e_8HS6xp9oLNzP8DsKt9rS35mS5rgZEhpvvnUrGucjbD9YaoXYBHvyrZVWBsanuV8enicb1ZfIhP6ObLI-B2ta6l-JAOcJl42-cGrlMg-GWYYeepd6P8GzW5UQEZkVLVnMRG9TAiLaiWnSTZn7icmApayEmMR87Uz5zk4oCejokfUrYXm5J9WZF4xxqNqu_w80JaM1xM-x7Fn4CDSmQvDIm9cGaLkHhPXlC67tgPvXkw9YNZ5PkzzL6SeBqMXX86d6Mw8txw4kbTw4j8sX3d8XwyjfwoDDw_csNwPj_8A5PU-Mk)
+```mermaid
+flowchart TD
+    A([Inicio])
+    B([Cargar datos históricos desde CSV])
+    C([Instanciar DemandForecasterSystem])
+    D([Agregar modelos de pronóstico])
+    E([Entrenar modelos con datos])
+    F([Generar pronósticos por modelo])
+    G([Evaluar desempeño de cada modelo])
+    H([Graficar resultados])
+    I([Exportar pronósticos a CSV])
+    J([Fin])
+
+    subgraph Modelos
+        D1[[ProphetModel]]
+        D2[[ARIMAModel]]
+        D3[[MLRegressionModel]]
+        D4[[EnsembleModel]]
+    end
+
+    A --> B --> C --> D
+    D --> D1 & D2 & D3 & D4
+    D4 --> E --> F --> G --> H --> I --> J
