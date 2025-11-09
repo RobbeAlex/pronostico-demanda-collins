@@ -143,3 +143,5 @@ pip install -r requirements.txt
 ```bash
 python src/main.py
 ```
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Versión](https://img.shields.io/badge/version-0.1.0-blue)
