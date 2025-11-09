@@ -1,5 +1,4 @@
 ```mermaid
-flowchart TD
 classDiagram
     class ForecastModel {
         - modelo_id: str
