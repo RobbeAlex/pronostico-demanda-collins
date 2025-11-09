@@ -1,7 +1,6 @@
 ```mermaid
 flowchart TD
 classDiagram
-    %% Superclase base
     class ForecastModel {
         - modelo_id: str
         - datos: DataFrame
@@ -10,7 +9,6 @@ classDiagram
         + evaluate(): dict
     }
 
-    %% Subclases
     class ProphetModel {
         + fit(datos): void
         + predict(horizonte): DataFrame
@@ -36,7 +34,6 @@ classDiagram
         + evaluate(): dict
     }
 
-    %% Clase gestora
     class DemandForecasterSystem {
         - modelos: list
         + agregar_modelo(modelo): void
@@ -44,7 +41,6 @@ classDiagram
         + exportar_resultados(): void
     }
 
-    %% Utilidades
     class DataSetLoader {
         + cargar_datos(ruta): DataFrame
     }
@@ -57,7 +53,6 @@ classDiagram
         + exportar_csv(resultados, ruta): void
     }
 
-    %% Relaciones
     ForecastModel <|-- ProphetModel
     ForecastModel <|-- ARIMAModel
     ForecastModel <|-- MLRegressionModel
