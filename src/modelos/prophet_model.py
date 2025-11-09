@@ -2,7 +2,7 @@ import pandas as pd
 from modelos.forecast_model import ForecastModel
 
 class ProphetModel(ForecastModel):
- """
+    """
     Implementación del modelo Prophet para pronóstico de demanda.
 
     Utiliza descomposición aditiva y ajuste automático de estacionalidad.
