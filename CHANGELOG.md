@@ -1,3 +1,9 @@
+## [0.1.1] - 2025-11-09
+### Añadido
+- Banner en  `README.md`
+- Diagrama de Flujo en `README.md`
+- Elementos graficos de resultados en `README.md`
+
 ## [0.1.0] - 2025-11-09
 ### Añadido
 - Estructura modular inicial del sistema en `src/`
