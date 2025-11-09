@@ -20,7 +20,7 @@ Construir un sistema en Python que pronostique la demanda de medicamentos utiliz
 
 ---
 
-## 🧠 ¿Por qué POO?
+## 🧠 Justificación POO
 
 El sistema está construido con Programación Orientada a Objetos porque:
 
@@ -126,7 +126,6 @@ src/
 ```
 ## 💻 Diagrama de flujo
 <img width="1854" height="1508" alt="Untitled diagram-2025-11-09-214436" src="https://github.com/user-attachments/assets/8ddf9403-04ac-4d4e-8590-b78f6404126f" />
-
 
 ## 👁️ Resultados del Experimento
 
