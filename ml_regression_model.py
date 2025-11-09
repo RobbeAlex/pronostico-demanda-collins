@@ -143,7 +143,7 @@ class MLRegressionModel(BaseModel):
                            'lag_1', 'lag_2', 'lag_3', 'lag_6', 'lag_12',
                            'rolling_mean_3', 'rolling_mean_6', 'rolling_std_3']
             
-            X_pred = last_row[feature_cols].values.reshape(1, -1)
+            X_pred = last_row[feature_cols].to_frame().T
             
             # Make prediction
             pred = self.model.predict(X_pred)[0]

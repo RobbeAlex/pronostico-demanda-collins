@@ -64,8 +64,7 @@ def main():
     # ML Regression model (Random Forest)
     ml_model = MLRegressionModel(
         name="RandomForest",
-        model_type="random_forest",
-        n_estimators=100
+        model_type="random_forest"
     )
     print("   ✓ ML Regression model initialized")
     

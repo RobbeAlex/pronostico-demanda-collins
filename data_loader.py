@@ -66,7 +66,7 @@ def generate_sample_data(periods: int = 36,
     import numpy as np
     
     # Generate dates
-    dates = pd.date_range(start=start_date, periods=periods, freq='M')
+    dates = pd.date_range(start=start_date, periods=periods, freq='ME')
     
     # Generate trend component
     trend_component = np.arange(periods) * trend

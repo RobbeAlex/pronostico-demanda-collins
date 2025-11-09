@@ -49,7 +49,7 @@ class ARIMAModel(BaseModel):
         self.freq = pd.infer_freq(time_series.index)
         if self.freq is None:
             # Default to monthly if can't infer
-            self.freq = 'M'
+            self.freq = 'ME'
         
         # Fit ARIMA model
         self.model = ARIMA(time_series, order=self.order)
@@ -80,7 +80,7 @@ class ARIMAModel(BaseModel):
         future_dates = pd.date_range(
             start=self.last_date + pd.DateOffset(months=1),
             periods=periods,
-            freq='M'
+            freq='ME'
         )
         
         # Get confidence intervals

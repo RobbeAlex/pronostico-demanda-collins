@@ -64,7 +64,7 @@ class ProphetModel(BaseModel):
             raise ValueError("Model must be fitted before making predictions")
         
         # Create future dataframe
-        future = self.model.make_future_dataframe(periods=periods, freq='M')
+        future = self.model.make_future_dataframe(periods=periods, freq='ME')
         
         # Make predictions
         forecast = self.model.predict(future)
