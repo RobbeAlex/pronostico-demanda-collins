@@ -82,8 +82,7 @@ src/
 └── main.py                # Punto de entrada del sistema
 ```
 ## 🧬 Diagrama UML
-<img width="4759" height="485" alt="uml_forecast" src="https://github.com/user-attachments/assets/9fc2f711-0c70-4472-9fc1-b51878b272d7" />
-
+<img width="1915" height="705" alt="Diagrama sin título drawio" src="https://github.com/user-attachments/assets/8c01bee1-f090-40d5-b45f-bcdce10536f0" />
 
 ## 🔤 Versión ASCII
 ```ASCII
