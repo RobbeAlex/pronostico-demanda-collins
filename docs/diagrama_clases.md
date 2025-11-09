@@ -1,8 +1,7 @@
 ```mermaid
 flowchart TD
 classDiagram
-    class ForecastModel {
-        - modelo_id: str
+    class ForecastModel {- modelo_id: str
         - datos: DataFrame
         + fit(datos): void
         + predict(horizonte): DataFrame
