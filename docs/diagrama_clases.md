@@ -1,1 +1,69 @@
-[![](https://mermaid.ink/img/pako:eNrFVV2LozAU_SsSGHBYLe1Yq5VlYZjuLAtTWFp2H5bCkJpbG1YTSWKZabf_faO2o2ktfdv6EDX33Os59yPuUMwJoAjFKZZyQnEicLZglr7u7qx5kYMoLWAt9VLvV0jrmQuIsVRT7Z5au9pUXq6VlVv8lZLIkkq0LQQrLiNrghV-1t-BxvbJWlFlV_b7yNpwStq2XAChsbLXXNAtZwruLwSBDU4LrMDWgNKjtu0XrCVpWQmSbTE_BM_XcK7l_7CqOTzOvk8fb8pg-jKDRICUlLObEvnKJGTLFDp6SxbLur10G6VUqht00FM1DwlIxQVu055Ahhk5DgaI-btes67Z6CCvBw8SLF5rgF3fOoQkwEBoXC4441LRmEtDVMP5oOct50JpB13YIlWYaLwRti3tp6IpJZiY01HmaQ7qhWuDMHsixqIkXWXdFoXC52k9qe0vKguc0u1pJH3urGhsCLPJymkOk27SddAZlCK_VanRVTEjf2Qglhu7yYJjHfh2p2IGKY71IBxTYZ53n_-6rnFqXAQ1Y30RcjZ3F5HGYBzJXmg71_1ihriKNup8Fd0U8ir0pDzIQYmgBEVKFOCgDESGy1dUlW2B1Bp086BIPxIs_izQgu21T47Zb86zo5vgRbJG0QqnUr8Vue5BOPy_PnYFMC3liRdMoWg8qmKgaIfeUOQOwoeePxj53rD_EIzCoeeg93I78Hqe74d9f-j3Qy8I_L2DttV3B73BOBgE4Sj0h_1wOPbC_T-M4kh_?type=png)](https://mermaid.live/edit#pako:eNrFVV2LozAU_SsSGHBYLe1Yq5VlYZjuLAtTWFp2H5bCkJpbG1YTSWKZabf_faO2o2ktfdv6EDX33Os59yPuUMwJoAjFKZZyQnEicLZglr7u7qx5kYMoLWAt9VLvV0jrmQuIsVRT7Z5au9pUXq6VlVv8lZLIkkq0LQQrLiNrghV-1t-BxvbJWlFlV_b7yNpwStq2XAChsbLXXNAtZwruLwSBDU4LrMDWgNKjtu0XrCVpWQmSbTE_BM_XcK7l_7CqOTzOvk8fb8pg-jKDRICUlLObEvnKJGTLFDp6SxbLur10G6VUqht00FM1DwlIxQVu055Ahhk5DgaI-btes67Z6CCvBw8SLF5rgF3fOoQkwEBoXC4441LRmEtDVMP5oOct50JpB13YIlWYaLwRti3tp6IpJZiY01HmaQ7qhWuDMHsixqIkXWXdFoXC52k9qe0vKguc0u1pJH3urGhsCLPJymkOk27SddAZlCK_VanRVTEjf2Qglhu7yYJjHfh2p2IGKY71IBxTYZ53n_-6rnFqXAQ1Y30RcjZ3F5HGYBzJXmg71_1ihriKNup8Fd0U8ir0pDzIQYmgBEVKFOCgDESGy1dUlW2B1Bp086BIPxIs_izQgu21T47Zb86zo5vgRbJG0QqnUr8Vue5BOPy_PnYFMC3liRdMoWg8qmKgaIfeUOQOwoeePxj53rD_EIzCoeeg93I78Hqe74d9f-j3Qy8I_L2DttV3B73BOBgE4Sj0h_1wOPbC_T-M4kh_)
+```mermaid
+flowchart TD
+classDiagram
+    %% Superclase base
+    class ForecastModel {
+        - modelo_id: str
+        - datos: DataFrame
+        + fit(datos): void
+        + predict(horizonte): DataFrame
+        + evaluate(): dict
+    }
+
+    %% Subclases
+    class ProphetModel {
+        + fit(datos): void
+        + predict(horizonte): DataFrame
+        + evaluate(): dict
+    }
+
+    class ARIMAModel {
+        + fit(datos): void
+        + predict(horizonte): DataFrame
+        + evaluate(): dict
+    }
+
+    class MLRegressionModel {
+        + fit(datos): void
+        + predict(horizonte): DataFrame
+        + evaluate(): dict
+    }
+
+    class EnsembleModel {
+        - submodelos: list
+        + fit(datos): void
+        + predict(horizonte): DataFrame
+        + evaluate(): dict
+    }
+
+    %% Clase gestora
+    class DemandForecasterSystem {
+        - modelos: list
+        + agregar_modelo(modelo): void
+        + generar_pronosticos(horizonte): dict
+        + exportar_resultados(): void
+    }
+
+    %% Utilidades
+    class DataSetLoader {
+        + cargar_datos(ruta): DataFrame
+    }
+
+    class Visualizer {
+        + graficar_pronostico(df, modelo_id): void
+    }
+
+    class ReportGenerator {
+        + exportar_csv(resultados, ruta): void
+    }
+
+    %% Relaciones
+    ForecastModel <|-- ProphetModel
+    ForecastModel <|-- ARIMAModel
+    ForecastModel <|-- MLRegressionModel
+    ForecastModel <|-- EnsembleModel
+
+    DemandForecasterSystem --> ForecastModel
+    DemandForecasterSystem --> DataSetLoader
+    DemandForecasterSystem --> Visualizer
+    DemandForecasterSystem --> ReportGenerator
