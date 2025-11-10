@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/python-3.10+-blue?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)]()
 
-Este proyecto desarrolla un sistema capaz de generar pronósticos mensuales de demanda para productos farmacéuticos por cliente. Utiliza modelos de series de tiempo y Machine Learning para apoyar decisiones estratégicas, como planeación de producción y abastecimiento.
+Este proyecto desarrolla un sistema capaz de generar pronósticos mensuales de demanda para productos farmacéuticos por cliente. Utiliza modelos de series de tiempo y Machine Learning, incorporando técnicas de ingeniería de características y reducción de dimensionalidad (como PCA), para apoyar decisiones estratégicas, como planeación de producción y abastecimiento.
 
 ---
 
@@ -32,18 +32,35 @@ El sistema está construido con Programación Orientada a Objetos porque:
 | Escalabilidad | Permite integrar nuevos algoritmos sin modificar el flujo principal |
 
 ---
+# ✨ Preprocesamiento de Datos y Reducción de Dimensionalidad
+
+Antes de alimentar los datos a los modelos de Machine Learning (como `MLRegressionModel` y `XGBoostModel`), el sistema realiza un procesamiento avanzado para mejorar el rendimiento y la interpretabilidad.
+
+### Análisis de Componentes Principales (PCA)
+
+El PCA se utiliza para los siguientes fines:
+
+1.  **Reducción de Dimensionalidad:** Si el conjunto de datos de entrada incluye un gran número de características (ej. variables exógenas), se aplica PCA para proyectar estas variables en un conjunto más pequeño de **Componentes Principales (PCs)**, reteniendo la mayor parte de la varianza.
+2.  **Mitigación de la Multicolinealidad:** Al generar PCs ortogonales, se asegura que las variables de entrada de los modelos de regresión sean independientes, lo que mejora la estabilidad y fiabilidad de los coeficientes de regresión.
+
+El PCA se integra en el flujo principal como un paso antes del entrenamiento de los modelos de Regresión y XGBoost. El número de componentes principales a retener puede ser configurado.
+---
 ## 🧱 Estructura de Clases
 
-- `ForecastModel`: superclase base
-- Subclases:
-  - `ProphetModel`
-  - `ARIMAModel`
-  - `MLRegressionModel`
-  - `XGBoostModel`
-  - `EnsembleModel`
-- `DemandForecasterSystem`: clase gestora del flujo
-- `DataSetLoader`, `ReportGenerator`, `Visualizer`: clases auxiliares
-
+* `ForecastModel`: superclase base
+* Subclases:
+	+ `ProphetModel`
+	+ `ARIMAModel`
+	+ `MLRegressionModel`
+	+ `XGBoostModel`
+	+ `EnsembleModel`
+* `DemandForecasterSystem`: clase gestora del flujo
+* Clases auxiliares:
+	+ `DataSetLoader`
+	+ `ReportGenerator`
+	+ `Visualizer`
+	+ `FeatureEngineer` (o `PCAProcessor`): Encapsula la lógica de preprocesamiento, incluyendo PCA.
+---
 ## 🧪 Modelos de Pronóstico Integrados
 
 El sistema incluye una arquitectura flexible con diferentes tipos de modelos:
@@ -67,6 +84,7 @@ for model in modelos:
     score = model.evaluate(test_data)
 
 ```
+---
 ## 🧱 Arquitectura del Proyecto
 ```bash
 src/
@@ -83,14 +101,15 @@ src/
 │   ├── dataset_loader.py
 │   ├── evaluation_result.py
 │   ├── report_generator.py
+│   ├── feature_engineer.py
 │   └── visualizer.py
 │
 └── main.py
 ```
+---
 ## 🧬 Diagrama UML
 <img width="1977" height="1348" alt="Untitled diagram-2025-11-09-213101" src="https://github.com/user-attachments/assets/032fb91f-0e86-4db0-a4e5-954422c4c201" />
-
-
+---
 ## 🔤 Versión ASCII
 ```ASCII
                               +-----------------------------+
@@ -124,9 +143,10 @@ src/
           | + pred()   | | + pred()         | | + pred()    | | + pred()     |
           +------------+ +-----------------+ +-------------+ +---------------+
 ```
+---
 ## 💻 Diagrama de flujo
 <img width="1854" height="1508" alt="Untitled diagram-2025-11-09-214436" src="https://github.com/user-attachments/assets/8ddf9403-04ac-4d4e-8590-b78f6404126f" />
-
+---
 ## 👁️ Resultados del Experimento
 
 Se probaron 5 modelos usando datos históricos de ventas de **Grupo Collins**.  
@@ -144,12 +164,12 @@ El criterio principal fue **RMSE** (mientras más bajo, mejor).
 - El modelo **Ensemble** combinando todos los demás fue el más preciso.  
 - ProphetModel se desempeñó mejor que ML y ForecastModel, mostrando ventajas de los modelos de series temporales avanzadas.  
 - ARIMA es confiable para patrones clásicos, pero con mayor error que los modelos de ML y Prophet.
-
+---
 ### 📈 Ejemplo Visual del Forecast
 <img width="1200" height="500" alt="Figure_1" src="https://github.com/user-attachments/assets/427811cb-1c3c-420a-aeca-0e9e08182206" />
 
 > Gráfica generada con datos de prueba mostrando ventas históricas vs pronósticos de los 5 modelos.
-
+---
 ## 🚀 Cómo Ejecutar el Proyecto
 1️⃣ Clonar repositorio
 ```bash
